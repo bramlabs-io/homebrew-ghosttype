@@ -7,6 +7,9 @@ cask "ghosttype" do
   desc "Copy and paste text anywhere - even where you can't"
   homepage "https://github.com/bramlabs-io/ghosttype"
 
+  # Quit app before upgrade/uninstall
+  uninstall quit: "com.ghosttype.app"
+
   app "GhostType.app"
 
   postflight do
