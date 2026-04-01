@@ -10,6 +10,7 @@ cask "ghosttype" do
   app "GhostType.app"
 
   postflight do
+    system_command "/usr/bin/xattr", args: ["-cr", "/Applications/GhostType.app"]
     system_command "/usr/bin/osascript", args: [
       "-e", 'tell application "System Events" to make login item at end with properties {path:"/Applications/GhostType.app", hidden:false}'
     ]
