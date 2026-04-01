@@ -1,6 +1,6 @@
 cask "ghosttype" do
-  version "1.0.4"
-  sha256 "ebed9018a1ec1986cd625701a05573b9a970ef6e56069ce1230927a21648247d"
+  version "1.0.5"
+  sha256 "cd9d3ece92a06c8ddf50d4ee6d1b56e4764b87c3a45b17f60d101cf732dd83d2"
 
   url "https://github.com/bramlabs-io/ghosttype/releases/download/v#{version}/GhostType-#{version}.dmg"
   name "GhostType"
@@ -13,18 +13,11 @@ cask "ghosttype" do
   app "GhostType.app"
 
   postflight do
-    # Clear stale accessibility permissions from previous installs
-    system_command "/usr/bin/tccutil", args: ["reset", "Accessibility", "com.ghosttype.app"], must_succeed: false
     system_command "/usr/bin/xattr", args: ["-cr", "/Applications/GhostType.app"]
     system_command "/usr/bin/osascript", args: [
       "-e", 'tell application "System Events" to make login item at end with properties {path:"/Applications/GhostType.app", hidden:false}'
     ]
     system_command "/usr/bin/open", args: ["/Applications/GhostType.app"]
-  end
-
-  uninstall_preflight do
-    # Reset accessibility permissions on uninstall
-    system_command "/usr/bin/tccutil", args: ["reset", "Accessibility", "com.ghosttype.app"], must_succeed: false
   end
 
   uninstall_postflight do
