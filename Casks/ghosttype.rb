@@ -1,6 +1,6 @@
 cask "ghosttype" do
   version "1.0.1"
-  sha256 "8dbaa70b3e572a5fd92d0fd26846ab3d71ab931c74e2d1fdc7e5b84a0e4a9907"
+  sha256 "633607a5c9120df3a845b2b770eae09b4411453aac4157d93c8f3c81ac4ccc27"
 
   url "https://github.com/bramlabs-io/ghosttype/releases/download/v#{version}/GhostType-#{version}.dmg"
   name "GhostType"
